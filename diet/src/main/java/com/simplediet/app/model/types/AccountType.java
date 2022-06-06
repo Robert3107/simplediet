@@ -5,8 +5,9 @@ public enum AccountType {
     BASIC(1),
     STANDARD(2),
     PREMIUM(3),
-    ULTIMATE(4);
+    ULTIMATE(4),
+    COMPANY(5);
 
-    AccountType(int i) {
+    AccountType(int type) {
     }
 }

@@ -1,11 +1,12 @@
 package com.simplediet.diet.User;
 
-import com.simplediet.app.model.service.UserService.UserServiceImpl;
+import com.simplediet.app.model.service.UserService.UserDataOperations;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class UserTest {
+    UserDataOperations userOperations = new UserDataOperations();
 
     @ParameterizedTest
     @ValueSource(strings = {"abc@gmail.pl",
@@ -15,8 +16,8 @@ public class UserTest {
             "bobbbie@suttal.com"})
     public void validateEmailTest(String email) {
         String notValidEmail = "abc@abc";
-        UserServiceImpl validateEmailMethod = new UserServiceImpl();
-        Assertions.assertTrue(validateEmailMethod.validateEmail(email));
-        Assertions.assertFalse(validateEmailMethod.validateEmail(notValidEmail));
+        Assertions.assertTrue(userOperations.validateEmail(email));
+        Assertions.assertFalse(userOperations.validateEmail(notValidEmail));
     }
+
 }

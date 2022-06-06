@@ -5,6 +5,7 @@ import com.simplediet.app.model.repository.MetricBodyRepository;
 import com.simplediet.app.model.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,12 +19,12 @@ public class MetricBodyController {
 
     @GetMapping("/user/{id}")
     public MetricBody getMetricFromUser(@PathVariable long id) {
-        return metricBodyRepository.findMetricBodyByUserId(id);
+        return metricBodyRepository.findMetricBodyByPatientId(id);
     }
 
     @PostMapping("/add/{id}")
     public MetricBody addMetricBody(@RequestBody MetricBody metricBody, @PathVariable Long id) {
-        metricBody.setUserId(userRepository.findById(id).get().getId());
+        metricBody.setPatientId(userRepository.findById(id).get().getId());
         return metricBodyRepository.save(metricBody);
     }
 
@@ -39,7 +40,7 @@ public class MetricBodyController {
             metricBodyRepository.deleteById(id);
             return "Metric has been successful deleted";
         } catch (IllegalArgumentException e) {
-            return "Not found";
+            return HttpStatus.NOT_FOUND.toString();
         }
 
     }

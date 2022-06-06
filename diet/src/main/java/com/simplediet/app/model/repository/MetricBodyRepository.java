@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MetricBodyRepository extends JpaRepository<MetricBody, Long> {
 
-    MetricBody findMetricBodyByUserId(long id);
+    MetricBody findMetricBodyByPatientId(long id);
 }

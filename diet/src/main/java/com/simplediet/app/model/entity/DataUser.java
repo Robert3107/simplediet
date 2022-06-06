@@ -16,11 +16,12 @@ public class DataUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @NotNull
-    private long userId;
+    private Long userId;
     @NotNull
     private String login;
     @NotNull
     private String password;
+
 }

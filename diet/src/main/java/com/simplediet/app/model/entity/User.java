@@ -1,12 +1,15 @@
 package com.simplediet.app.model.entity;
 
 import com.simplediet.app.model.types.AccountType;
+import com.simplediet.app.model.types.Role;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -23,7 +26,9 @@ public class User {
     @NotNull
     private String surname;
     @NotNull
+    @Column(unique = true)
     private String email;
+    private String sex;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -33,4 +38,9 @@ public class User {
     private String postalCode;
     @Column(name = "account_type")
     private AccountType accountType;
+    private Role role;
+    @Column(name="created_date", updatable = false)
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
 }
