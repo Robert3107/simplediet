@@ -27,7 +27,6 @@ public class UserController {
         return userRepository.findAll();
     }
 
-
     @ResponseBody
     @GetMapping("/{id}")
     public Optional<User> getUser(@PathVariable long id) {
@@ -47,7 +46,6 @@ public class UserController {
             e.printStackTrace();
             return HttpStatus.BAD_REQUEST;
         }
-
     }
 
     @PutMapping("/edit/{id}")
