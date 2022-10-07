@@ -38,10 +38,6 @@ public class User {
     private String email;
 
     @NotNull
-    @NotEmpty(message = "User sex is required")
-    private String sex;
-
-    @NotNull
     @NotEmpty(message = "Birthday date is required")
     @Column(name = "birthday_date")
     @DateTimeFormat(pattern = "dd-MM-yyyy")

@@ -42,6 +42,5 @@ public class MetricBodyController {
         } catch (IllegalArgumentException e) {
             return HttpStatus.NOT_FOUND.toString();
         }
-
     }
 }

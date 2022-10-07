@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
@@ -17,16 +18,24 @@ public class MetricBody {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     @Column(name = "patient_id")
     private Long patientId;
+
+    @NotNull
+    @NotEmpty(message = "Age is required")
     private Integer age;
+
+    @NotNull
+    @NotEmpty(message = "User sex is required")
+    private String sex;
     private Integer height;
     private Double weight;
     private Double neck;
     private Double chest;
     private Double waits;
-    private Double stomach;
+    private Double stomachWaits;
     private Double hips;
     private Double arm;
     private Double forearm;

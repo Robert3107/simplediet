@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,7 +21,7 @@ public class CertificateController {
 
     @GetMapping("/dietician/cert/{dieticianId}")
     public List<Certificate> dieticanCertificationList(@PathVariable Long dieticianId) {
-        return certificateRepository.findAllByDieticianId(dieticianId);
+        return certificateRepository.findAllByDieticanId(dieticianId);
     }
 
     @GetMapping("/company/cert/{companyId}")
