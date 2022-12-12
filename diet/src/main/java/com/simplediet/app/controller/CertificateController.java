@@ -1,9 +1,8 @@
 package com.simplediet.app.controller;
 
 import com.simplediet.app.model.entity.Certificate;
-import com.simplediet.app.model.repository.CertificateRepository;
+import com.simplediet.app.repository.CertificateRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/certificate")
-@Slf4j
 public class CertificateController {
 
     private final CertificateRepository certificateRepository;

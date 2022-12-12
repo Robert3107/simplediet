@@ -1,9 +1,9 @@
 package com.simplediet.app.controller;
 
 import com.simplediet.app.model.entity.User;
-import com.simplediet.app.model.repository.UserRepository;
-import com.simplediet.app.model.service.UserService.UserDataOperations;
-import com.simplediet.app.model.service.UserService.UserServiceImpl;
+import com.simplediet.app.repository.UserRepository;
+import com.simplediet.app.service.UserService.UserDataOperations;
+import com.simplediet.app.service.UserService.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

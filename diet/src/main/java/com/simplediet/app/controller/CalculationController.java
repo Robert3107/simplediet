@@ -1,6 +1,6 @@
 package com.simplediet.app.controller;
 
-import com.simplediet.app.model.service.CalculationFormula.DieteticCalculator;
+import com.simplediet.app.service.calculationformula.DieteticCalculator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

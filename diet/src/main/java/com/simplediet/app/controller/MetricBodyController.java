@@ -1,8 +1,8 @@
 package com.simplediet.app.controller;
 
 import com.simplediet.app.model.entity.MetricBody;
-import com.simplediet.app.model.repository.MetricBodyRepository;
-import com.simplediet.app.model.repository.UserRepository;
+import com.simplediet.app.repository.MetricBodyRepository;
+import com.simplediet.app.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
