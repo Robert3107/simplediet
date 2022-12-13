@@ -1,4 +1,4 @@
-package com.simplediet.app.model.entity.spoonacularproduct;
+package com.simplediet.app.model.entity.spoonacularproduct.basicentity;
 
 import java.util.ArrayList;
 import java.util.List;

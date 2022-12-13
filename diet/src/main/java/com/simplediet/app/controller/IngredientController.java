@@ -1,26 +1,57 @@
 package com.simplediet.app.controller;
 
+import com.simplediet.app.model.entity.spoonacularingredients.InformationIngredient;
 import com.simplediet.app.model.entity.spoonacularingredients.IngredientBasicObject;
-import com.simplediet.app.webclient.dto.client.SpooncularClient;
+import com.simplediet.app.model.entity.spoonacularingredients.IngredientConvertUnit;
+import com.simplediet.app.model.entity.spoonacularingredients.basicentity.Flavonoid;
+import com.simplediet.app.webclient.dto.spooncularDTO.SpoonacularDTO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/ingredient")
 public class IngredientController {
 
-    private final SpooncularClient spooncularClient;
+    private final SpoonacularDTO spoonacularDTO;
 
     @GetMapping("/search")
-    public IngredientBasicObject getIngredientData(@RequestParam String query,
-                                                   @RequestParam(required = false, defaultValue = "false") boolean addChildren,
-                                                   @RequestParam(required = false, defaultValue = "false") boolean metaInformation,
-                                                   @RequestParam(required = false, defaultValue = "asc") String sortDirection,
-                                                   @RequestParam(required = false, defaultValue = "10") int number) {
-        return spooncularClient.getIngredientData(query, addChildren, metaInformation, sortDirection, number);
+    public IngredientBasicObject getIngredientData(
+            @RequestParam String query,
+            @RequestParam(required = false, defaultValue = "false") boolean addChildren,
+            @RequestParam(required = false, defaultValue = "false") boolean metaInformation,
+            @RequestParam(required = false, defaultValue = "asc") String sortDirection,
+            @RequestParam(required = false, defaultValue = "10") int number
+    ) {
+        return spoonacularDTO.getIngredientByQuery(query, addChildren, metaInformation, sortDirection, number);
+    }
+
+    @GetMapping("/{id}/information")
+    public InformationIngredient getInformationIngredient(
+            @PathVariable long id,
+            @RequestParam(required = false, defaultValue = "1") int amount,
+            @RequestParam(required = false, defaultValue = "grams") String unit
+    ) {
+        return spoonacularDTO.getInformationIngredientById(id, amount, unit);
+    }
+
+    @GetMapping("/{id}/amount")
+    public Flavonoid getComputeIngredientAmount(
+            @PathVariable long id,
+            @RequestParam(required = false, defaultValue = "protein") String nutrient,
+            @RequestParam(required = false, defaultValue = "1") int target,
+            @RequestParam(required = false, defaultValue = "oz") String unit
+    ) {
+        return spoonacularDTO.getComputeIngredientAmountById(id, nutrient, target, unit);
+    }
+
+    @GetMapping("/convert")
+    public IngredientConvertUnit convertUnit(
+            @RequestParam String ingredientName,
+            @RequestParam(defaultValue = "1.0") double sourceAmount,
+            @RequestParam(defaultValue = "cups") String sourceUnit,
+            @RequestParam(defaultValue = "grams") String targetUnit
+    ) {
+        return spoonacularDTO.convertIngredientUnit(ingredientName, sourceAmount ,sourceUnit, targetUnit);
     }
 }

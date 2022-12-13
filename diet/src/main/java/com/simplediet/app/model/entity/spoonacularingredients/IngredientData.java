@@ -1,5 +1,7 @@
 package com.simplediet.app.model.entity.spoonacularingredients;
 
+import com.simplediet.app.model.entity.spoonacularingredients.basicentity.Children;
+
 import java.util.List;
 
 public class IngredientData {
@@ -7,9 +9,9 @@ public class IngredientData {
     private String name;
     private String aisle;
     private List<String> possibleUnits;
-    private List<IngredientChildren> children;
+    private List<Children> children;
 
-    public IngredientData(int id, String name, String aisle, List<String> possibleUnits, List<IngredientChildren> children) {
+    public IngredientData(int id, String name, String aisle, List<String> possibleUnits, List<Children> children) {
         this.id = id;
         this.name = name;
         this.aisle = aisle;
@@ -52,11 +54,11 @@ public class IngredientData {
         this.possibleUnits = possibleUnits;
     }
 
-    public List<IngredientChildren> getChildren() {
+    public List<Children> getChildren() {
         return children;
     }
 
-    public void setChildren(List<IngredientChildren> children) {
+    public void setChildren(List<Children> children) {
         this.children = children;
     }
 }

@@ -1,5 +1,7 @@
 package com.simplediet.app.model.entity.spoonacularproduct;
 
+import com.simplediet.app.model.entity.spoonacularproduct.basicentity.Nutrition;
+
 import java.util.ArrayList;
 
 public class InformationProduct {

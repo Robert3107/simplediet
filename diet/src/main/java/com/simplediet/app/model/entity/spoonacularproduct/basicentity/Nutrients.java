@@ -1,4 +1,4 @@
-package com.simplediet.app.model.entity.spoonacularproduct;
+package com.simplediet.app.model.entity.spoonacularproduct.basicentity;
 
 public class Nutrients {
 

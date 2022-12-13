@@ -1,16 +1,15 @@
-package com.simplediet.app.model.entity.spoonacularingredients;
+package com.simplediet.app.model.entity.spoonacularingredients.basicentity;
 
-public class IngredientChildren {
+public class Children {
     private long id;
     private String name;
 
-    public IngredientChildren(long id, String name) {
+    public Children(long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public IngredientChildren() {
-    }
+    public Children() {}
 
     public long getId() {
         return id;
