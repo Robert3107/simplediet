@@ -25,50 +25,48 @@ public class SpoonacularDTO {
     private static final String SPOONCULAR_INGREDIENTS_URL = "https://api.spoonacular.com/food/ingredients";
     private static final String API_KEY = "2d6514dae01e4847b6868ee84b9cf868";
 
-    private final SpoonacularDTO spoonacularDTO = new SpoonacularDTO();
-
     public InformationProduct getProductById(long id) {
-        return spoonacularDTO.convert(callGetMethod(SPOONCULAR_PRODUCT_URL, "/{id}", id), InformationProduct.class);
+        return convert(callGetMethod(SPOONCULAR_PRODUCT_URL, "/{id}", id), InformationProduct.class);
     }
 
     public InformationProduct getProductByUpcCode(String upc) {
-        return spoonacularDTO.convert(callGetMethod(SPOONCULAR_PRODUCT_URL, "/upc/{upc}", upc), InformationProduct.class);
+        return convert(callGetMethod(SPOONCULAR_PRODUCT_URL, "/upc/{upc}", upc), InformationProduct.class);
     }
 
     public Product getProductByQuery(String query, boolean addProductInformation, int number) {
         Product product = new Product();
         if (addProductInformation) {
             product.setProducts(Collections.singletonList(BasicProductData.class));
-            return spoonacularDTO.convert(callGetMethod(SPOONCULAR_PRODUCT_URL,
+            return convert(callGetMethod(SPOONCULAR_PRODUCT_URL,
                     "/search?query={query}&addProductInformation={addProductInformation}&number={number}",
                     query, true, number), Product.class);
         } else
             product.setProducts(Collections.singletonList(InformationProduct.class));
-        return spoonacularDTO.convert(callGetMethod(SPOONCULAR_PRODUCT_URL,
+        return convert(callGetMethod(SPOONCULAR_PRODUCT_URL,
                 "/search?query={query}&addProductInformation={addProductInformation}&number={number}",
                 query, false, number), Product.class);
     }
 
     public IngredientBasicObject getIngredientByQuery(String query, boolean addChildren, boolean metaInformation, String sortDirection, int number) {
-        return spoonacularDTO.convert(callGetMethod(SPOONCULAR_INGREDIENTS_URL,
+        return convert(callGetMethod(SPOONCULAR_INGREDIENTS_URL,
                 "/search?query={query}&addChildren={addChildren}&metaInformation={metaInformation}&sortDirection={sortDirection}&number={number}",
                 query, addChildren, metaInformation, sortDirection, number), IngredientBasicObject.class);
     }
 
     public InformationIngredient getInformationIngredientById(long id, int amount, String grams) {
-        return spoonacularDTO.convert(callGetMethod(SPOONCULAR_INGREDIENTS_URL,
+        return convert(callGetMethod(SPOONCULAR_INGREDIENTS_URL,
                 "/{id}/information?amount={amount}&unit={unit}",
                 id, amount, grams), InformationIngredient.class);
     }
 
     public Flavonoid getComputeIngredientAmountById(long id, String nutrient, int target, String unit) {
-        return spoonacularDTO.convert(callGetMethod(SPOONCULAR_INGREDIENTS_URL,
+        return convert(callGetMethod(SPOONCULAR_INGREDIENTS_URL,
                 "/{id}/amount?nutrient={nutrient}&target={target}&unit={unit}",
                 id, nutrient, target, unit), Flavonoid.class);
     }
 
     public IngredientConvertUnit convertIngredientUnit(String ingredientName, double sourceAmount, String sourceUnit, String targetUnit) {
-        return spoonacularDTO.convert(callGetMethod(SPOONCULAR_URL,
+        return convert(callGetMethod(SPOONCULAR_URL,
                 "/recipes/convert?ingredientName={ingredientName}&sourceAmount={sourceAmount}&sourceUnit={sourceUnit}&targetUnit={targetUnit}",
                 ingredientName, sourceAmount, sourceUnit, targetUnit), IngredientConvertUnit.class);
     }
@@ -81,18 +79,18 @@ public class SpoonacularDTO {
         return basicRequestBuilder(basicUri).postForObject(categoryUrl, body, String.class, objects);
     }
 
-    public RestTemplate basicRequestBuilder(String URI) {
+    public RestTemplate basicRequestBuilder(String uri){
         return new RestTemplateBuilder()
-                .rootUri(URI)
+                .rootUri(uri)
                 .defaultHeader("x-api-key", API_KEY)
                 .build();
     }
-
     /**
-     * @param json                 accepts json in String format returned by the Spoonacular API
+     *
+     * @param json accepts json in String format returned by the Spoonacular API
      * @param deserializationClass takes a class parameter for target data serialization
-     * @param <T>                  the generic type of the target class to which the json will be transformed
      * @return an object of the class given as a parameter
+     * @param <T> the generic type of the target class to which the json will be transformed
      */
     public <T> T convert(String json, Class<T> deserializationClass) {
         try {
