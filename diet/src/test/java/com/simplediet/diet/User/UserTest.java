@@ -1,6 +1,6 @@
 package com.simplediet.diet.User;
 
-import com.simplediet.app.service.UserService.UserDataOperations;
+import com.simplediet.app.service.user.UserDataOperations;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
