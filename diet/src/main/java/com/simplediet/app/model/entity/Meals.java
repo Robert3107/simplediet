@@ -41,7 +41,8 @@ public class Meals {
         this.complexCarbohydrates = complexCarbohydrates;
     }
 
-    public Meals() {}
+    public Meals() {
+    }
 
     public long getId() {
         return id;

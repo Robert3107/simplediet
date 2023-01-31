@@ -3,9 +3,6 @@ package com.simplediet.app.model.entity;
 import com.simplediet.app.model.types.AccountType;
 import com.simplediet.app.model.types.Role;
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -79,7 +76,8 @@ public class User {
         this.createdDate = createdDate;
     }
 
-    public User() {}
+    public User() {
+    }
 
     public Long getId() {
         return id;

@@ -25,7 +25,8 @@ public class DataUser {
         this.password = password;
     }
 
-    public DataUser() {}
+    public DataUser() {
+    }
 
     public Long getId() {
         return id;

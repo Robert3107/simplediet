@@ -26,7 +26,8 @@ public class Diet {
         this.meals = meals;
     }
 
-    public Diet() {}
+    public Diet() {
+    }
 
     public Long getId() {
         return id;

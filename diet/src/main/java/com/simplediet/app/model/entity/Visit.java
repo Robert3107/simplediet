@@ -35,7 +35,8 @@ public class Visit {
         this.visitDate = visitDate;
     }
 
-    public Visit() {}
+    public Visit() {
+    }
 
     public Long getId() {
         return id;

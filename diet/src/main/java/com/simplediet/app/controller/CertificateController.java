@@ -38,11 +38,11 @@ public class CertificateController {
 
     @PutMapping("/edit/{certId}")
     public HttpStatus editCertification(@Valid @RequestBody Certificate certificate, @PathVariable Long certId, BindingResult result) {
-        if (result.hasErrors()){
+        if (result.hasErrors()) {
             return HttpStatus.BAD_REQUEST;
         }
-            certificateRepository.findById(certId);
-            certificateRepository.save(certificate);
-            return HttpStatus.OK;
+        certificateRepository.findById(certId);
+        certificateRepository.save(certificate);
+        return HttpStatus.OK;
     }
 }

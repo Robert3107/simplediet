@@ -36,7 +36,7 @@ public class Certificate {
     @Column(name = "date_of_obtaining")
     private Date dateOfObtaining;
 
-    @Column(name="created_date", updatable = false)
+    @Column(name = "created_date", updatable = false)
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -58,7 +58,8 @@ public class Certificate {
         this.createdDate = createdDate;
     }
 
-    public Certificate() {}
+    public Certificate() {
+    }
 
     public Long getId() {
         return id;

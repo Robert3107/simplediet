@@ -14,7 +14,7 @@ public class Specialisation {
     private long id;
     private String title;
     private String description;
-    @Column(name="created_date", updatable = false)
+    @Column(name = "created_date", updatable = false)
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -26,7 +26,8 @@ public class Specialisation {
         this.createdDate = createdDate;
     }
 
-    public Specialisation() {}
+    public Specialisation() {
+    }
 
     public long getId() {
         return id;

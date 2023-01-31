@@ -30,7 +30,8 @@ public class Dietician {
         this.companies = companies;
     }
 
-    public Dietician() {}
+    public Dietician() {
+    }
 
     public Long getId() {
         return id;

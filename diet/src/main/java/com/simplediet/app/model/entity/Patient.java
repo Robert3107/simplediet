@@ -38,7 +38,8 @@ public class Patient {
         this.favoriteMeals = favoriteMeals;
     }
 
-    public Patient() {}
+    public Patient() {
+    }
 
     public Long getId() {
         return id;

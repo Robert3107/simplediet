@@ -70,7 +70,7 @@ public class Company {
     @OneToMany
     private List<Certificate> certificates = new ArrayList<>();
 
-    @Column(name="created_date", updatable = false)
+    @Column(name = "created_date", updatable = false)
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -108,7 +108,8 @@ public class Company {
         this.createdDate = createdDate;
     }
 
-    public Company() {}
+    public Company() {
+    }
 
     public Long getId() {
         return id;

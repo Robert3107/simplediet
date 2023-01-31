@@ -104,7 +104,8 @@ public class MetricBody {
         this.intracellularWater = intracellularWater;
     }
 
-    public MetricBody() {}
+    public MetricBody() {
+    }
 
     public Long getId() {
         return id;
